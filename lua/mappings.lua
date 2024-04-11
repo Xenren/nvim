@@ -12,7 +12,8 @@ map("n", "<leader>wq", ":wq<CR>", { desc = "Save and Quit"})
 map("n", "<leader>we", ":q<CR>", { desc = "Quit"})
 map("n", "<leader>w`", ":q!<CR>", { desc = "Force Quit"})
 map("n", "<leader>ol", ":!open <c-r><c-a><CR>", { desc = "Open Link" })
-map("i", "jk", "<ESC>")
+map("i", "jk", "<ESC>", { desc = "exit insert mode"})
+map("n", "<leader>wb", ":Nvdash<CR>", { desc = "display dashboard -- exit tree to avoid error"})
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
