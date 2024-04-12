@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     config = function()
       require "configs.conform"
     end,
@@ -17,70 +17,105 @@ return {
   },
 
   {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
-  			"lua-language-server", "stylua",
-  			"html-lsp", "css-lsp" , "prettier",
-        "pyright", "black", "flake8", "pylint",
-        "mypy", "debugpy",
-  		},
-  	},
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettierd",
+        "eslint-lsp",
+        "typescript-language-server",
+        "tailwindcss-language-server",
+        "pyright",
+        "black",
+        "flake8",
+        "pylint",
+        "mypy",
+        "debugpy",
+      },
+    },
   },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-    event = 'VeryLazy',
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "python",
+        "html",
+        "css",
+        "typescript",
+        "javascript",
+        "tsx",
+        "markdown",
+        "json",
+      },
+    },
   },
 
+  -- python plugins
   {
-    'psf/black',
+    "psf/black",
     ft = "python",
-    config = function ()
-      vim.api.nvim_create_autocmd( { "BufWritePost" }, {
-        pattern = "*.py",
-        callback = function()
-         vim.cmd("!black %")
-      end,
-      })
-    end
+    config = function()
+      require("black").setup()
+    end,
   },
 
   {
-    'mfussenegger/nvim-lint',
-    event = 'BufWritePost',
-    config = function ()
-      require('lint').linters_by_ft = {
+    "mfussenegger/nvim-lint",
+    event = "BufWritePost",
+    config = function()
+      require("lint").linters_by_ft = {
         python = {
-          'flake8',
-          'mypy',
-          'pylint',
-        }
+          "flake8",
+          "mypy",
+          "pylint",
+        },
       }
 
-      vim.api.nvim_create_autocmd( { "BufWritePost" }, {
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         pattern = "*.py",
         callback = function()
           require("lint").try_lint()
         end,
       })
-    end
+    end,
   },
 
   {
-    'mfussenegger/nvim-dap-python',
+    "mfussenegger/nvim-dap-python",
     ft = "python",
     dependencies = {
-      'mfussenegger/nvim-dap',
+      "mfussenegger/nvim-dap",
     },
-    config = function ()
-      require('dap-python').setup('usr/bin/python3')
-    end
+    config = function()
+      require("dap-python").setup "usr/bin/python3"
+    end,
+  },
+
+  -- general frontend plugins
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "js",
+      "jsx",
+      "javascript",
+      "javascriptreact",
+      "ts",
+      "tsx",
+      "typescript",
+      "typescriptreact",
+      "html",
+      "react",
+    },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
   },
 }

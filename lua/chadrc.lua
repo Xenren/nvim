@@ -7,8 +7,8 @@ local M = {}
 M.ui = {
   hl_override = {
     NvDashAscii = {
-      bg = "green",
-      fg = "red",
+      bg = "black",
+      fg = "green",
     },
 
     Normal = {
