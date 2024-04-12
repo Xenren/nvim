@@ -1,11 +1,50 @@
 -- This file  needs to have same structure as nvconfig.lua 
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
-
+--
 ---@type ChadrcConfig
 local M = {}
 
 M.ui = {
-	theme = "oxocarbon",
+  hl_override = {
+    NvDashAscii = {
+      bg = "green",
+      fg = "red",
+    },
+
+    Normal = {
+      bg = {"black", -4},
+    },
+
+    -- status line coloring
+    St_NormalMode = {
+      fg = "green",
+    },
+
+    St_gitIcons = {
+      fg = "vibrant_green",
+    },
+
+    St_file_info = {
+      fg = "green",
+    },
+
+    St_EmptySpace = {
+      bg = "green",
+      fg = "green"
+    }
+  },
+
+  statusline = {
+    theme = "minimal", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "round",
+    order = nil,
+    modules = nil,
+  },
+
+	theme = "gatekeeper",
+  theme_toggle = { "gatekeeper", "decay" },
 
   nvdash = {
       load_on_startup = true,
