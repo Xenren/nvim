@@ -21,17 +21,12 @@ M.ui = {
     },
 
     St_gitIcons = {
-      fg = "vibrant_green",
+      fg = "green",
     },
 
     St_file_info = {
       fg = "green",
     },
-
-    St_EmptySpace = {
-      bg = "green",
-      fg = "green"
-    }
   },
 
   statusline = {
