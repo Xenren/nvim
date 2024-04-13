@@ -29,6 +29,7 @@ return {
         "eslint-lsp",
         "typescript-language-server",
         "tailwindcss-language-server",
+        "deno",
         "pyright",
         "black",
         "flake8",
@@ -128,5 +129,31 @@ return {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
+  },
+
+  -- markdown previewer
+  {
+    "toppair/peek.nvim",
+    build = "deno task --quiet build:fast",
+
+    keys = {
+      {
+        "<leader>op",
+        function()
+          local peek = require "peek"
+          if peek.is_open() then
+            peek.close()
+          else
+            peek.open()
+          end
+        end,
+        desc = "Peek (Markdown Preview)",
+      },
+    },
+
+    opts = {
+      theme = "dark",
+      app = { vim.env.BROWSER_PATH, "--new-window" },
+    },
   },
 }
