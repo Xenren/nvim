@@ -2,7 +2,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
--- Default Overrides
+-- Nvchad Overrides
 map("n", "<leader>vt", function()
   require("nvchad.term").new { pos = "vsp", size = 0.3 }
 end, { desc = "Terminal New Vertical Window" })
@@ -18,9 +18,9 @@ map("i", "jk", "<ESC>", { desc = "Exit Insert Mode" })
 map("n", "<leader>wb", ":Nvdash<CR>", { desc = "Display Dashboard" })
 
 -- Word Searching
-map("n", "<leader>rh", ":noh<CR>", { desc = "Remove Search Highlighting" })
-map("n", "<leader>sw", "*", { desc = "Search Word Under Cursor" })
-map("n", "<leader>j", "#", { desc = "Next Word Under Cursor" })
+map("n", "<leader>se", ":noh<CR>", { desc = "Remove Search Highlighting" })
+map("n", "<C-k>", "*", { desc = "Search Word Under Cursor" })
+map("n", "<C-j>", "#", { desc = "Previous Word Under Cursor" })
 map("n", "<leader>fr", ":%s/", { desc = "Find and Replace" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

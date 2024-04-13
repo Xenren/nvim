@@ -2,6 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
+    cmd = { "ConformInfo" },
     config = function()
       require "configs.conform"
     end,
@@ -59,14 +60,6 @@ return {
   },
 
   -- python plugins
-  {
-    "psf/black",
-    ft = "python",
-    config = function()
-      require("black").setup()
-    end,
-  },
-
   {
     "mfussenegger/nvim-lint",
     event = "BufWritePost",
