@@ -99,6 +99,24 @@ return {
     end,
   },
 
+  {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "nvim-telescope/telescope.nvim",
+      "mfussenegger/nvim-dap-python",
+    },
+    opts = {
+      name = { "venv", ".venv" },
+      auto_refresh = false,
+    },
+    event = "VeryLazy",
+    keys = {
+      { "<leader>vs", "<CMD>VenvSelect<CR>", desc = { "Open Venv Selector" } },
+      { "<leader>vc", "<CMD>VenvSelectCached<CR>", desc = { "Retrieve Cached Venv" } },
+    },
+  },
+
   -- general frontend plugins
   {
     "windwp/nvim-ts-autotag",
