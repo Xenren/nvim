@@ -45,8 +45,8 @@ vim.g.clipboard = {
     ["*"] = "clip.exe",
   },
   paste = {
-    ["+"] = 'pwsh.exe - c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("\'r", ""))',
-    ["*"] = 'pwsh.exe - c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("\'r", ""))',
+    ["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ["*"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
   },
-  cache_enabled = -1,
+  cache_enabled = 0,
 }
