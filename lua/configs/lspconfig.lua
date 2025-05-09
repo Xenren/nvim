@@ -7,10 +7,10 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
-  "ts_ls",
-  "tailwindcss",
-  "eslint",
-  "gopls",
+--  "ts_ls",
+--  "tailwindcss",
+--  "eslint",
+--  "gopls",
 }
 
 -- lsps with default config
@@ -23,24 +23,24 @@ for _, lsp in ipairs(servers) do
 end
 
 -- python
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  filetypes = { "python" },
-}
+-- lspconfig.pyright.setup {
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   filetypes = { "python" },
+-- }
 
-lspconfig.rust_analyzer.setup {
-  settings = {
-    ["rust_analyzer"] = {},
-  },
-}
+--lspconfig.rust_analyzer.setup {
+--  settings = {
+--    ["rust_analyzer"] = {},
+--  },
+--}
 
 -- cpp
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
+-- lspconfig.clangd.setup {
+--  on_attach = function(client, bufnr)
+--    client.server_capabilities.signatureHelpProvider = false
+--    on_attach(client, bufnr)
+--  end,
+--  capabilities = capabilities,
+--}

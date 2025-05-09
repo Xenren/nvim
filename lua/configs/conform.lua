@@ -17,7 +17,7 @@ local options = {
     react = { "prettierd" },
     scss = { "prettierd" },
     yaml = { "prettierd" },
-    python = { "black", "isort" },
+    -- python = { "black", "isort" },
   },
 
   format_on_save = {
